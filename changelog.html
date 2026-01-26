@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>更新履歴 - Enhancer 4 Google</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <style>
+    :root {
+      --md-sys-color-primary: #0b57d0;
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-surface: #fdfbff;
+      --md-sys-color-surface-container: #f0f4f9;
+      --md-sys-color-on-surface: #1f1f1f;
+      --md-sys-color-outline: #747775;
+    }
+
+    body {
+      font-family: 'Roboto', 'Google Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      line-height: 1.6;
+    }
+
+    .header {
+      background: var(--md-sys-color-surface-container);
+      padding: 60px 24px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-family: 'Google Sans', sans-serif;
+      margin: 0 0 16px;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--md-sys-color-primary);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    /* Timeline Style */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      border-left: 2px solid #e0e2e7;
+    }
+
+    .version-item {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    /* Dot on the timeline */
+    .version-item::before {
+      content: "";
+      position: absolute;
+      left: -39px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--md-sys-color-primary);
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px var(--md-sys-color-primary);
+    }
+
+    .version-header {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .version-number {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--md-sys-color-primary);
+    }
+
+    .change-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .change-item {
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .change-item::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--md-sys-color-outline);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .tag.new {
+      background-color: #c2e7ff;
+      color: #001d35;
+    }
+
+    .tag.fix {
+      background-color: #ffdad6;
+      color: #410002;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+      <a href="index.html" class="back-link">
+        <span class="material-icons-outlined" style="font-size: 18px; margin-right: 4px;">arrow_back</span>
+        ホームに戻る
+      </a>
+      <h1>更新履歴 (Changelog)</h1>
+      <p>Enhancer 4 Google の機能追加と修正の履歴です。</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="timeline">
+
+      <!-- v1.2.1 -->
+      <div class="version-item">
+        <div class="version-header">
+          <span class="version-number">v1.2.1</span>
+        </div>
+        <ul class="change-list">
+          <li class="change-item">
+            <span class="tag new">NEW</span>
+            <strong>NotebookLM 生成回数カウンター</strong><br>
+            現在のセッションでのAI生成回数を可視化する機能を実装しました。
+          </li>
+          <li class="change-item">
+            <span class="tag fix">FIX</span>
+            <strong>NotebookLM カテゴリ管理の不具合修正</strong><br>
+            未割当Notebookの順序が意図せず変更されてしまう問題を解消しました。
+          </li>
+          <li class="change-item">
+            <span class="tag fix">FIX</span>
+            <strong>NotebookLM 同期スケジューラーの不具合修正</strong><br>
+            多数のソース（10個以上など）を登録した際に、一部しか同期処理が実行されない問題を解消しました。
+          </li>
+        </ul>
+      </div>
+
+      <!-- v1.2.0 -->
+      <div class="version-item">
+        <div class="version-header">
+          <span class="version-number">v1.2.0</span>
+        </div>
+        <ul class="change-list">
+          <li class="change-item">
+            <span class="tag new">NEW</span>
+            <strong>Gemini カテゴリ検索機能</strong><br>
+            GeminiのサイドバーおよびGemマネージャーにて、カテゴリごとの検索・フィルタリング機能を新規実装しました。
+          </li>
+        </ul>
+      </div>
+
+      <!-- v1.1.0 -->
+      <div class="version-item">
+        <div class="version-header">
+          <span class="version-number">v1.1.0</span>
+        </div>
+        <ul class="change-list">
+          <li class="change-item">
+            <span class="tag new">NEW</span>
+            <strong>NotebookLM カテゴリ検索機能</strong><br>
+            増え続けるノートブックを効率的に管理するためのカテゴリ検索機能を新規実装しました。
+          </li>
+        </ul>
+      </div>
+
+      <!-- v1.0.1 -->
+      <div class="version-item">
+        <div class="version-header">
+          <span class="version-number">v1.0.1</span>
+        </div>
+        <ul class="change-list">
+          <li class="change-item">
+            <span class="tag new">NEW</span>
+            <strong>Gem カスタム指示の入力エリア拡大編集</strong><br>
+            Gem（カスタムGemini）の作成・編集画面において、システムプロンプト等の入力エリアを拡大表示する機能を実装しました。
+          </li>
+        </ul>
+      </div>
+
+      <!-- v1.0.0 -->
+      <div class="version-item">
+        <div class="version-header">
+          <span class="version-number">v1.0.0</span>
+        </div>
+        <ul class="change-list">
+          <li class="change-item">
+            <strong>初版リリース</strong><br>
+            Enhancer 4 Google を公開しました。
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Enhancer 4 Google. Not affiliated with Google.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
