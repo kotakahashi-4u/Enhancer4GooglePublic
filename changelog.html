@@ -70,7 +70,7 @@
 
     .version-item {
       position: relative;
-      margin-bottom: 48px;
+      margin-bottom: 32px; /* 少し間隔を調整 */
     }
 
     /* Dot on the timeline */
@@ -85,14 +85,28 @@
       background-color: var(--md-sys-color-primary);
       border: 2px solid white;
       box-shadow: 0 0 0 2px var(--md-sys-color-primary);
+      transition: background-color 0.3s;
+    }
+
+    /* 閉じている時はドットの色を少し薄くするなどの演出も可能 */
+    .version-item:not(.open)::before {
+        background-color: var(--md-sys-color-outline);
+        box-shadow: 0 0 0 2px var(--md-sys-color-outline);
     }
 
     .version-header {
       display: flex;
-      align-items: baseline;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
+      align-items: center; /* 垂直方向中央揃え */
+      margin-bottom: 0; /* 下のマージンを削除し、リスト表示時に制御 */
+      flex-wrap: nowrap;
       gap: 12px;
+      cursor: pointer; /* クリック可能であることを示す */
+      user-select: none; /* ダブルクリックでのテキスト選択を防止 */
+      padding: 8px 0; /* クリック領域を少し広げる */
+    }
+
+    .version-header:hover .version-number {
+        color: #0842a0; /* ホバー時に少し濃く */
     }
 
     .version-number {
@@ -100,12 +114,39 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--md-sys-color-primary);
+      flex-grow: 1; /* 番号以外のスペースを埋める */
+    }
+
+    /* 開閉用の矢印アイコン */
+    .toggle-icon {
+      font-family: 'Material Icons Outlined';
+      font-size: 24px;
+      color: var(--md-sys-color-outline);
+      transition: transform 0.3s ease;
+    }
+
+    /* 開いている時は矢印を180度回転 */
+    .version-item.open .toggle-icon {
+      transform: rotate(180deg);
     }
 
     .change-list {
       list-style: none;
       padding: 0;
       margin: 0;
+      display: none; /* デフォルトで非表示 */
+      margin-top: 16px; /* 開いた時の上の余白 */
+    }
+
+    /* openクラスがついている時は表示 */
+    .version-item.open .change-list {
+      display: block;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     .change-item {
@@ -155,17 +196,18 @@
         ホームに戻る
       </a>
       <h1>更新履歴 (Changelog)</h1>
-      <p>Enhancer 4 Google の機能追加と修正の履歴です。</p>
+      <p>Enhancer 4 Google の機能追加と修正の履歴です。バージョンをクリックして詳細を確認できます。</p>
     </div>
   </div>
 
   <div class="container">
     <div class="timeline">
 
-      <!-- v1.2.1 -->
-      <div class="version-item">
+      <!-- v1.2.1 (最新版なので最初から開いておく: class="open") -->
+      <div class="version-item open">
         <div class="version-header">
           <span class="version-number">v1.2.1</span>
+          <span class="toggle-icon">expand_more</span>
         </div>
         <ul class="change-list">
           <li class="change-item">
@@ -205,6 +247,7 @@
       <div class="version-item">
         <div class="version-header">
           <span class="version-number">v1.2.0</span>
+          <span class="toggle-icon">expand_more</span>
         </div>
         <ul class="change-list">
           <li class="change-item">
@@ -219,6 +262,7 @@
       <div class="version-item">
         <div class="version-header">
           <span class="version-number">v1.1.0</span>
+          <span class="toggle-icon">expand_more</span>
         </div>
         <ul class="change-list">
           <li class="change-item">
@@ -238,6 +282,7 @@
       <div class="version-item">
         <div class="version-header">
           <span class="version-number">v1.0.1</span>
+          <span class="toggle-icon">expand_more</span>
         </div>
         <ul class="change-list">
           <li class="change-item">
@@ -252,6 +297,7 @@
       <div class="version-item">
         <div class="version-header">
           <span class="version-number">v1.0.0</span>
+          <span class="toggle-icon">expand_more</span>
         </div>
         <ul class="change-list">
           <li class="change-item">
@@ -270,6 +316,16 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // アコーディオンの制御スクリプト
+    document.querySelectorAll('.version-header').forEach(header => {
+      header.addEventListener('click', () => {
+        // 親要素(.version-item)を取得
+        const item = header.closest('.version-item');
+        // openクラスをトグル（あれば削除、なければ追加）
+        item.classList.toggle('open');
+      });
+    });
   </script>
 </body>
 </html>
