@@ -213,22 +213,22 @@
           <li class="change-item">
             <span class="tag fix">FIX</span>
             <strong>NotebookLMカテゴリ管理のリスト表示対応（現在は検索機能のみ）</strong><br>
-            NotebookLMのフロントページにおいて、グリッド表示からリスト表示切り替えても検索ボックスを維持する。
+            NotebookLMのフロントページにおいて、グリッド表示からリスト表示切り替えても検索ボックスを維持するよう修正しました。
           </li>
           <li class="change-item">
             <span class="tag fix">FIX</span>
             <strong>Geminiカテゴリ管理における保存キーの変更</strong><br>
-            chrome.storage.syncの仕様上、1つのキーに対して8KBのデータしか保存できないため、チャット履歴の保存エラーが頻発していた。これを改善するため、キーの扱い方を変更した。
+            chrome.storage.syncの仕様上、1つのキーに対して8KBのデータしか保存できないため、チャット履歴の保存エラーが頻発していました。これを改善するため、キーの扱い方を変更しました。ただし、chrome.storage.syncは全体としてのデータ容量が少ないため、今後chrome.storage.localなどの利用も見据えた恒久対応を行う予定です。
           </li>
           <li class="change-item">
             <span class="tag fix">FIX</span>
             <strong>NotebookLMカテゴリ管理機能の緊急アップデート</strong><br>
-            GoogleWorkspace以外のアカウント（@gmail.com）においてカテゴリ管理機能をONにするとすべてのNotebookが非表示になる問題を修正した。
+            GoogleWorkspace以外のアカウント（@gmail.com）においてカテゴリ管理機能をONにするとすべてのNotebookが非表示になる問題を修正しました。
           </li>
           <li class="change-item">
             <span class="tag fix">FIX</span>
             <strong>NotebookLM生成回数カウンター機能の自動保存不具合修正</strong><br>
-            生成回数カウンターの入力エリアにおいて、入力した情報が保存されない不具合が発生していたため修正した。
+            生成回数カウンターの入力エリアにおいて、入力した情報が保存されない不具合が発生していたため修正しました。
           </li>
         </ul>
       </div>
