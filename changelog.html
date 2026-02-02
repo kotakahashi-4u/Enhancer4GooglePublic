@@ -203,8 +203,38 @@
   <div class="container">
     <div class="timeline">
 
-      <!-- v1.2.1 (最新版なので最初から開いておく: class="open") -->
+      <!-- v1.2.2 (最新版なので最初から開いておく: class="open") -->
       <div class="version-item open">
+        <div class="version-header">
+          <span class="version-number">v1.2.2</span>
+          <span class="toggle-icon">expand_more</span>
+        </div>
+        <ul class="change-list">
+          <li class="change-item">
+            <span class="tag fix">FIX</span>
+            <strong>NotebookLMカテゴリ管理のリスト表示対応（現在は検索機能のみ）</strong><br>
+            NotebookLMのフロントページにおいて、グリッド表示からリスト表示切り替えても検索ボックスを維持する。
+          </li>
+          <li class="change-item">
+            <span class="tag fix">FIX</span>
+            <strong>Geminiカテゴリ管理における保存キーの変更</strong><br>
+            chrome.storage.syncの仕様上、1つのキーに対して8KBのデータしか保存できないため、チャット履歴の保存エラーが頻発していた。これを改善するため、キーの扱い方を変更した。
+          </li>
+          <li class="change-item">
+            <span class="tag fix">FIX</span>
+            <strong>NotebookLMカテゴリ管理機能の緊急アップデート</strong><br>
+            GoogleWorkspace以外のアカウント（@gmail.com）においてカテゴリ管理機能をONにするとすべてのNotebookが非表示になる問題を修正した。
+          </li>
+          <li class="change-item">
+            <span class="tag fix">FIX</span>
+            <strong>NotebookLM生成回数カウンター機能の自動保存不具合修正</strong><br>
+            生成回数カウンターの入力エリアにおいて、入力した情報が保存されない不具合が発生していたため修正した。
+          </li>
+        </ul>
+      </div>
+      
+      <!-- v1.2.1 -->
+      <div class="version-item">
         <div class="version-header">
           <span class="version-number">v1.2.1</span>
           <span class="toggle-icon">expand_more</span>
