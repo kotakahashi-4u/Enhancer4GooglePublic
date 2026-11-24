@@ -399,7 +399,7 @@
         Release Notes
       </div>
       <h1>更新履歴 (Changelog)</h1>
-      <p>全面的な Material Design 3 刷新と生成AIワークフロー機能の集大成となるメジャーリリース。</p>
+      <p>全面的な Material Design 3 刷新と生成AIワークフロー強化を実現したメジャーリリース。</p>
     </div>
   </section>
 
@@ -419,8 +419,8 @@
       <button class="filter-chip" data-filter="notebook">
         <span class="material-icons-outlined">menu_book</span>Gemini Notebook
       </button>
-      <button class="filter-chip" data-filter="workspace">
-        <span class="material-icons-outlined">workspaces</span>Chat / Slides / GAS
+      <button class="filter-chip" data-filter="chat">
+        <span class="material-icons-outlined">chat</span>Google Chat
       </button>
     </div>
 
@@ -432,7 +432,7 @@
           <span class="major-badge">MAJOR UPDATE</span>
         </div>
         <p class="version-summary">
-          設定画面から各サービスの注入UIに至るまで Google Material Design 3 準拠へ全面刷新し、Gemini・Gemini Notebook・Google Chat・Google Slides・GAS の全領域に次世代機能を搭載しました。
+          設定画面および各種注入UIを Google Material Design 3 準拠へ全面刷新し、Gemini・Gemini Notebook・Google Chat を中心とした体験向上とパッケージ全体のスリム化を実施しました。
         </p>
       </div>
 
@@ -450,35 +450,14 @@
                 <span class="tag design">DESIGN</span>
                 <strong>Google Material Design 3 準拠の新設定画面 & 自動タブ選択</strong>
               </div>
-              <p>最上部のGoogle 4カラーバー、すりガラスヘッダー、各サービスの有効機能数バッジ付きドロワーを採用。現在開いているGoogleサービスのタブを自動判別して対応する設定画面を即座に開きます。</p>
+              <p>最上部のGoogle 4カラーバー、すりガラスヘッダー、各サービスの有効機能数バッジ付きナビゲーションドロワーを採用。現在開いているGoogleサービスのタブを自動判別し、対応する設定画面を即座に開きます。</p>
             </li>
             <li class="change-item">
               <div class="change-item-top">
-                <span class="tag new">NEW</span>
-                <strong>Googleアカウント言語ワンクリック切替 & ステータス表示</strong>
+                <span class="tag improve">IMPROVE</span>
+                <strong>Googleアカウント言語切替の現在ステータス表示 & タブ即時更新</strong>
               </div>
-              <p>Googleアカウントの優先言語「English (US) ⇔ 元言語」をワンクリックで切り替え可能に。現在の設定言語バッジとアクティブタブの即時リロードボタンも搭載しました。</p>
-            </li>
-            <li class="change-item">
-              <div class="change-item-top">
-                <span class="tag new">NEW</span>
-                <strong>アプリランチャー（ワッフルメニュー）の自由並び替え</strong>
-              </div>
-              <p>Google画面右上のアプリランチャー内の全アイコンをドラッグ＆ドロップで任意の順番に並び替え・保持できる機能を追加しました。</p>
-            </li>
-            <li class="change-item">
-              <div class="change-item-top">
-                <span class="tag new">NEW</span>
-                <strong>ダウンロード自動変換（HEIC / WebP 等 → JPG、Office文書 → PDF）</strong>
-              </div>
-              <p>ダウンロード時の特殊画像フォーマットのJPG自動変換および、Word / Excel / PowerPoint ファイルのPDF自動変換に対応しました。</p>
-            </li>
-            <li class="change-item">
-              <div class="change-item-top">
-                <span class="tag new">NEW</span>
-                <strong>設定とカテゴリデータのJSONバックアップ（エクスポート / インポート）</strong>
-              </div>
-              <p>すべての設定値および Gemini・Gemini Notebook のカテゴリ構成を単一の `.json` ファイルで保存・復元できるバックアップ機能を追加しました。</p>
+              <p>現在のアカウント優先言語をひと目で確認できるステータスバッジと、言語切替後にアクティブタブをその場でリロードできる専用ボタンを追加しました。</p>
             </li>
           </ul>
         </section>
@@ -495,7 +474,7 @@
                 <span class="tag new">NEW</span>
                 <strong>プロンプト目次タイムライン & ↑キー送信履歴呼び出し</strong>
               </div>
-              <p>長い会話でも画面右端のフローティング目次から該当プロンプトへスムーズスクロール＆ハイライト移動が可能に。空の入力欄で `↑` / `↓` キーを押すと過去の送信プロンプトを呼び出せます。</p>
+              <p>長い会話でも画面右端のフローティング目次から該当プロンプトへスムーズスクロール＆ハイライト移動が可能に。空の入力欄で `↑` / `↓` キーを押すと過去の送信プロンプトを順番に呼び出せます。</p>
             </li>
             <li class="change-item">
               <div class="change-item-top">
@@ -509,21 +488,14 @@
                 <span class="tag improve">IMPROVE</span>
                 <strong>サイドバー カテゴリ管理の純正コンテキストメニュー完全統合</strong>
               </div>
-              <p>ドラッグ不要でチャット各項目の「⋮」メニューから直接「カテゴリに追加」「カテゴリの移動」が可能に。固定（ピン留め）や未読（Mark as unread / read）操作とも完全に連動します。</p>
-            </li>
-            <li class="change-item">
-              <div class="change-item-top">
-                <span class="tag new">NEW</span>
-                <strong>チャット履歴の一括削除モード</strong>
-              </div>
-              <p>サイドバー上の不要なチャットを複数チェックして一括削除できるモードを追加しました。</p>
+              <p>ドラッグ不要でチャット各項目の「⋮」メニューから直接「カテゴリに追加」「カテゴリの移動」が可能に。固定（ピン留め）や未読（Mark as unread / read）状態とも完全に同期します。</p>
             </li>
             <li class="change-item">
               <div class="change-item-top">
                 <span class="tag improve">IMPROVE</span>
-                <strong>Canvas Markdownコピー高精度化・プロンプト入力安定化・@メンション対応</strong>
+                <strong>Canvas Markdownコピー高精度化・入力欄の安定化・@メンション確定対応</strong>
               </div>
-              <p>テーブルを含むCanvas文書のGFM変換強化、ツールショートカット併用時の複数行入力レイアウト安定化、および `@` メンション候補表示中のEnter確定動作に完全対応しました。</p>
+              <p>テーブルを含むCanvas文書のGFM変換強化、ツールショートカット高速化と複数行入力時のレイアウト安定化、および `@` メンション候補展開時のEnter選択確定に対応しました。</p>
             </li>
           </ul>
         </section>
@@ -545,54 +517,40 @@
             <li class="change-item">
               <div class="change-item-top">
                 <span class="tag new">NEW</span>
-                <strong>複数ノートブックのカテゴリ一括移動 & ノート／ソース一括削除</strong>
+                <strong>複数ノートブックのカテゴリ一括移動</strong>
               </div>
-              <p>複数のノートブックを選択して指定カテゴリへまとめて移動・解除できる一括整理機能と、ノートブックおよびソースの一括削除機能を搭載しました。</p>
+              <p>複数のノートブックにチェックを入れて、指定したカテゴリへまとめて一括移動・解除できる整理機能を追加しました。</p>
             </li>
             <li class="change-item">
               <div class="change-item-top">
                 <span class="tag improve">IMPROVE</span>
-                <strong>Web Crawler の現在タブURLワンクリック取得 & グローバルナビゲーション</strong>
+                <strong>Web Crawler の現在タブURLワンクリック取得 & 旧機能の整理・軽量化</strong>
               </div>
-              <p>クローリング対象URLをアクティブタブからワンクリックで取得できるようになり、ロゴクリックでノート間を素早く移動できるグローバルナビゲーションを追加しました。（※旧仕様の同期スケジューラーおよび生成回数カウンターは廃止し、軽量・高速化を実施しました）</p>
+              <p>クローリング対象URLをアクティブタブからワンクリックで取得できるよう改善しました。（※仕様変更に伴い、旧同期スケジューラーおよび生成回数カウンターを廃止して軽量化を実施しました）</p>
             </li>
           </ul>
         </section>
 
-        <!-- Chat / Slides / GAS -->
-        <section class="cat-group" data-cat="workspace">
+        <!-- Google Chat -->
+        <section class="cat-group" data-cat="chat">
           <h2 class="cat-group-title">
-            <span class="material-icons-outlined">workspaces</span>
-            Google Chat / Google Slides / Google Apps Script
+            <span class="material-icons-outlined">chat</span>
+            Google Chat 機能拡張
           </h2>
           <ul class="change-list">
             <li class="change-item">
               <div class="change-item-top">
-                <span class="tag new">NEW</span>
-                <strong>Google Chat：カスタムステータス最大10件対応 & ステルス高速反映</strong>
-              </div>
-              <p>テンプレートを「＋」ボタンで最大10件まで自由に追加・削除可能に。検索付き絵文字ピッカー、ダイアログのスムーズスクロール、裏側で自動設定するステルス反映エンジンを搭載しました。</p>
-            </li>
-            <li class="change-item">
-              <div class="change-item-top">
-                <span class="tag new">NEW</span>
-                <strong>Google Chat：SAFE キラキラ保護マーク & サジェスト共存型Enter制御</strong>
-              </div>
-              <p>誤送信防止が有効な入力欄に保護バッジを表示し、`@`メンションや絵文字候補ポップアップ展開時はEnterでの候補選択をそのまま通すスマート判定を実装しました。</p>
-            </li>
-            <li class="change-item">
-              <div class="change-item-top">
                 <span class="tag improve">IMPROVE</span>
-                <strong>Google Slides：マイGAS Webアプリ連携による高速バッチPDF取込 & 画像ZIP保存</strong>
+                <strong>カスタムステータスの最大10件動的追加・削除 & ステルス高速反映</strong>
               </div>
-              <p>ブラウザ内でのPDF高精細レンダリング・連番画像ZIP保存と、ユーザー自身のGAS WebアプリURLを用いた高速バッチスライド生成アーキテクチャへ刷新しました。</p>
+              <p>デフォルト1枠から「＋」ボタンで最大10件まで自由に追加・削除できるUIへ刷新。検索付きM3絵文字ピッカー、ダイアログのスクロール対応、裏側で自動設定するステルス反映エンジンを搭載しました。</p>
             </li>
             <li class="change-item">
               <div class="change-item-top">
                 <span class="tag new">NEW</span>
-                <strong>Google Apps Script：Gemini 2.5 / 3 対応アシスタント & 全ファイル一括適用</strong>
+                <strong>SAFE キラキラ保護マーク & サジェスト共存型Enter制御</strong>
               </div>
-              <p>GASエディタ上で最新の Gemini モデルを選択してコード解析・生成を実行し、差分プレビュー確認後に個別または全ファイル一括で自動反映できる開発支援環境を統合しました。</p>
+              <p>誤送信防止が有効な入力欄に保護バッジを表示し、`@`メンションや絵文字候補ポップアップ展開時はEnterでの候補選択をそのまま優先するスマート判定を実装しました。</p>
             </li>
           </ul>
         </section>
