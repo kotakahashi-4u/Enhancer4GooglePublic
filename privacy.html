@@ -4,350 +4,427 @@
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="IFde4nBHF3CWjFWAqgK23hKMClKorxAN00CIjJoKvhI" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhancer 4 Google - Privacy Policy</title>
+  <title>プライバシーポリシー (Privacy Policy) - Enhancer 4 Google</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
   <style>
     :root {
-      --theme-color: #1BA1E3;
-      --theme-color-light: rgba(27, 161, 227, 0.1);
-      --text-dark: #2c3e50;
-      --text-light: #5f6368;
-      --bg-main: #f8f9fa;
-      --bg-card: #ffffff;
-      --border-color: #ecf0f1;
+      --google-blue: #4285F4;
+      --google-red: #EA4335;
+      --google-yellow: #FBBC05;
+      --google-green: #34A853;
+
+      --md-primary: #0b57d0;
+      --md-surface: #f8fafd;
+      --md-surface-card: #ffffff;
+      --md-surface-tonal: #eef3fc;
+      --md-text-primary: #1f1f1f;
+      --md-text-secondary: #444746;
+      --md-text-muted: #5f6368;
+      --md-border: #e3e7ed;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
-      font-family: "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: var(--bg-main);
-      color: var(--text-dark);
-      line-height: 1.6;
+      font-family: "Google Sans", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--md-surface);
+      color: var(--md-text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ヘッダーエリア */
-    .header {
-      background: var(--bg-card);
-      border-bottom: 1px solid var(--border-color);
-      padding: 15px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-      position: sticky;
+    /* 最上部 Google 4カラーバー */
+    .google-color-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 4px;
+      width: 100%;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      z-index: 1000;
+    }
+    .google-color-bar span:nth-child(1) { background-color: var(--google-blue); }
+    .google-color-bar span:nth-child(2) { background-color: var(--google-red); }
+    .google-color-bar span:nth-child(3) { background-color: var(--google-yellow); }
+    .google-color-bar span:nth-child(4) { background-color: var(--google-green); }
+
+    /* ヘッダー */
+    .site-header {
+      position: sticky;
+      top: 4px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--md-border);
     }
 
-    .container {
-      max-width: 800px;
+    .header-inner {
+      max-width: 880px;
       margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .header-content {
+      padding: 12px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
       gap: 12px;
     }
 
-    .logo-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--theme-color);
-      border-radius: 8px;
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--md-text-primary);
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
+
+    .logo-dots {
+      display: inline-flex;
+      gap: 4px;
+    }
+    .logo-dots i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+    .logo-dots i:nth-child(1) { background: var(--google-blue); }
+    .logo-dots i:nth-child(2) { background: var(--google-red); }
+    .logo-dots i:nth-child(3) { background: var(--google-yellow); }
+    .logo-dots i:nth-child(4) { background: var(--google-green); }
+
+    .header-controls {
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
+      gap: 10px;
     }
 
-    h1 {
-      font-size: 1.2rem;
-      margin: 0;
-      color: var(--text-dark);
-    }
-
-    /* 言語切り替えスイッチ */
+    /* M3 セグメント言語切替スイッチ */
     .lang-switch {
-      display: flex;
-      background: #f1f3f4;
-      border-radius: 20px;
-      padding: 2px;
+      display: inline-flex;
+      background: #edf2fa;
+      border: 1px solid #d3e3fd;
+      border-radius: 999px;
+      padding: 3px;
     }
 
     .lang-btn {
       border: none;
-      background: none;
+      background: transparent;
       padding: 6px 14px;
-      border-radius: 18px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      color: var(--text-light);
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--md-text-muted);
       cursor: pointer;
       transition: all 0.2s;
     }
-
     .lang-btn.active {
-      background: white;
-      color: var(--theme-color);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background: #ffffff;
+      color: var(--md-primary);
+      box-shadow: 0 1px 4px rgba(11, 87, 208, 0.14);
     }
 
-    .lang-btn:hover:not(.active) {
-      color: var(--text-dark);
+    .main-container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
     }
 
-    /* メインコンテンツ */
-    .main {
-      padding: 40px 0;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      padding: 32px;
+    .policy-hero-card {
+      background: linear-gradient(135deg, #ffffff 0%, #eff5ff 60%, #f6f0ff 100%);
+      border: 1px solid #d3e3fd;
+      border-radius: 24px;
+      padding: 36px 32px;
       margin-bottom: 24px;
+      box-shadow: 0 8px 28px rgba(11, 87, 208, 0.05);
     }
 
-    h2 {
-      font-size: 1.2rem;
-      color: var(--text-dark);
-      border-bottom: 2px solid var(--theme-color-light);
-      padding-bottom: 10px;
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      font-size: 1rem;
-      color: var(--text-dark);
-      margin-top: 24px;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    p, li {
-      color: var(--text-light);
-      font-size: 0.95rem;
+    .policy-hero-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       margin-bottom: 12px;
     }
-
-    ul {
-      padding-left: 20px;
+    .policy-hero-top .material-icons-outlined {
+      font-size: 32px;
+      color: var(--md-primary);
     }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    /* 重要な注記 */
-    .note {
-      background-color: var(--theme-color-light);
-      border-left: 4px solid var(--theme-color);
-      padding: 16px;
-      border-radius: 4px;
-      margin: 20px 0;
-    }
-    .note p {
+    .policy-hero-card h1 {
       margin: 0;
-      color: var(--text-dark);
+      font-size: 1.85rem;
+      letter-spacing: -0.015em;
     }
 
-    /* フッター */
-    .footer {
-      text-align: center;
-      padding: 40px 0;
-      color: var(--text-light);
+    .updated-date {
       font-size: 0.85rem;
-      border-top: 1px solid var(--border-color);
+      color: var(--md-text-muted);
+      margin: 0 0 16px;
+      font-weight: 500;
     }
 
-    /* 言語コンテンツ制御 */
+    .summary-callout {
+      background: rgba(255, 255, 255, 0.88);
+      border-left: 4px solid var(--md-primary);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+    .summary-callout p {
+      margin: 0;
+      color: var(--md-text-primary);
+      font-size: 0.92rem;
+    }
+
+    .policy-card {
+      background: var(--md-surface-card);
+      border: 1px solid var(--md-border);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+    }
+
+    .policy-card h2 {
+      font-size: 1.2rem;
+      color: var(--md-text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--md-border);
+      margin: 32px 0 16px;
+    }
+    .policy-card h2:first-child {
+      margin-top: 0;
+    }
+    .policy-card h2 .material-icons-outlined {
+      color: var(--md-primary);
+      font-size: 21px;
+    }
+
+    .policy-card p, .policy-card li {
+      color: var(--md-text-secondary);
+      font-size: 0.94rem;
+    }
+
+    .policy-card ul {
+      padding-left: 20px;
+      margin: 12px 0 20px;
+    }
+    .policy-card li {
+      margin-bottom: 10px;
+    }
+
+    .ext-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--md-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .ext-link:hover {
+      text-decoration: underline;
+    }
+
     .lang-content {
-      display: none; /* デフォルト非表示 */
-      animation: fadeIn 0.3s ease;
+      display: none;
+      animation: fadeIn 0.25s ease-out;
     }
     .lang-content.active {
-      display: block; /* アクティブな言語のみ表示 */
+      display: block;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
+    footer {
+      border-top: 1px solid var(--md-border);
+      background: #ffffff;
+      padding: 36px 24px;
+      text-align: center;
+      color: var(--md-text-muted);
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: var(--md-primary);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+    }
+
     @media (max-width: 600px) {
-      .card { padding: 20px; }
-      h1 { font-size: 1rem; }
-      .header { padding: 10px 0; }
+      .policy-hero-card, .policy-card {
+        padding: 24px 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header class="header">
-    <div class="container header-content">
-      <div class="logo-area">
-        <div class="logo-icon">E</div>
-        <h1>Enhancer 4 Google</h1>
-      </div>
-      
-      <div class="lang-switch">
-        <button class="lang-btn" onclick="switchLang('en')" id="btn-en">English</button>
-        <button class="lang-btn" onclick="switchLang('ja')" id="btn-ja">日本語</button>
+  <div class="google-color-bar">
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-link">
+        <span class="logo-dots"><i></i><i></i><i></i><i></i></span>
+        <span>Enhancer 4 Google</span>
+      </a>
+      <div class="header-controls">
+        <div class="lang-switch" role="group" aria-label="Language Switch">
+          <button type="button" class="lang-btn" id="btn-ja" onclick="switchLang('ja')">日本語</button>
+          <button type="button" class="lang-btn" id="btn-en" onclick="switchLang('en')">English</button>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="main container">
-    
-    <div id="content-en" class="lang-content">
-      <div class="card">
-        <h2>Privacy Policy</h2>
-        <p>Last Updated: January 2, 2026</p>
-        <p>"Enhancer 4 Google" (hereinafter referred to as "this extension") prioritizes user privacy. This policy explains how we handle your data in compliance with the Google API Services User Data Policy.</p>
-        
-        <div class="note">
-          <p><strong>Summary:</strong> We do not collect your personal information, browsing history, or input data on our servers. All processing occurs locally within your browser or via direct communication with Google's official APIs.</p>
+  <main class="main-container">
+
+    <!-- 日本語版 -->
+    <div id="content-ja" class="lang-content">
+      <div class="policy-hero-card">
+        <div class="policy-hero-top">
+          <span class="material-icons-outlined">shield</span>
+          <h1>プライバシーポリシー</h1>
+        </div>
+        <p class="updated-date">最終更新日: 2026年11月24日（v2.0.0 対応）</p>
+        <p style="margin:0; font-size:0.94rem; color:var(--md-text-secondary);">
+          「Enhancer 4 Google」（以下、本拡張機能）は、ユーザーのプライバシーとセキュリティを最優先に設計されています。本ポリシーでは、Chrome ウェブストアのユーザーデータポリシーに準拠し、本拡張機能におけるデータの取り扱いについて説明します。
+        </p>
+        <div class="summary-callout">
+          <p><strong>要約:</strong> 開発者は独自の外部サーバーを一切保有しておらず、お客様の個人情報、閲覧履歴、チャット内容、プロンプト、APIキー等を収集・保存・送信することは一切ありません。すべての処理はお使いのブラウザ内、またはお客様ご自身が指定した公式エンドポイントとの直接通信のみで完結します。</p>
         </div>
       </div>
 
-      <div class="card">
-        <h2>1. Data Accessed</h2>
-        <p>This extension accesses the following Google user data only when explicitly initiated by the user:</p>
+      <div class="policy-card">
+        <h2><span class="material-icons-outlined">fact_check</span>1. 取り扱うデータとブラウザ権限の目的</h2>
+        <p>本拡張機能は、お客様が有効化した各機能を実現する目的でのみ、ブラウザ内で以下の情報および権限を使用します。</p>
         <ul>
-          <li><strong>Google Drive Files (drive.file):</strong> Access is limited ONLY to files created by this extension itself (e.g., temporary image files converted from PDF). We DO NOT access, read, or modify your existing documents or photos in Google Drive.</li>
-          <li><strong>Google Slides (presentations):</strong> Access is required to create new slides and insert images into the active presentation initiated by the user.</li>
-          <li><strong>User Identity (userinfo.profile/email):</strong> Access is used solely to verify the user's session for Google Drive/Slides API operations via Chrome Identity API.</li>
+          <li><strong>設定情報・カテゴリ構成データ (storage):</strong> 各機能のON/OFF状態、カスタムステータス、および Gemini / Gemini Notebook のカテゴリ整理データをブラウザ内の <code>chrome.storage.sync</code> / <code>chrome.storage.local</code> に保存するために使用します。</li>
+          <li><strong>対象ページのUI拡張およびWebクローラー (scripting / activeTab / host_permissions):</strong> Gemini、Gemini Notebook、Google Chat、Google Slides、Google Apps Script、Google アプリランチャー上へのUI改善適用、アカウント言語切替操作の補助、およびお客様が指定したURLのMarkdownソース生成（Webクローラー機能）のために使用します。</li>
+          <li><strong>ファイルの自動変換・保存 (downloads / offscreen):</strong> お客様がダウンロードした特殊画像（HEIC/WebP等）をブラウザ内の隔離環境（Offscreen / Sandbox）でJPGへローカル変換する処理、および生成したMarkdown・ZIPファイルを保存するために使用します。</li>
         </ul>
 
-        <h2>2. Data Usage</h2>
-        <p>The accessed Google user data is used exclusively for the following purpose:</p>
+        <h2><span class="material-icons-outlined">sync_alt</span>2. 外部通信とAPIキー・GAS URLの取り扱い</h2>
+        <p>本拡張機能は開発者のサーバーとは一切通信を行いません。以下の機能をお客様が任意で利用した場合に限り、ブラウザから対象エンドポイントへHTTPSによる直接通信を行います。</p>
         <ul>
-          <li><strong>PDF to Slides Conversion:</strong> To convert a local PDF file selected by the user into Google Slides. The extension temporarily uploads converted images to the user's Google Drive, inserts them into a Google Slide, and then immediately deletes the temporary files.</li>
+          <li><strong>Google Apps Script 向け Gemini アシスタント機能:</strong> お客様ご自身が設定画面に入力した Google AI Studio の Gemini APIキーを使用し、Google公式の Gemini API（<code>generativelanguage.googleapis.com</code>）へ直接リクエストを送信します。</li>
+          <li><strong>Google Slides PDF取込・ドキュメント万能PDF変換機能:</strong> PDFの解析・画像化はブラウザ内（PDF.js）でローカル処理され、お客様ご自身がデプロイして設定画面に登録した Google Apps Script（GAS）WebアプリURLに対してのみデータを送信します。</li>
         </ul>
-        <p>We do not use Google user data for advertising, surveillance, or any other purposes.</p>
+        <p>取得・処理したデータを広告配信、行動追跡、第三者への提供・販売に使用することは一切ありません。</p>
 
-        <h2>3. Data Sharing</h2>
-        <p><strong>We do not share your Google user data with any third parties.</strong></p>
-        <p>All data processing (PDF conversion, image generation) occurs locally within your browser. The interaction with Google APIs (Drive/Slides) is a direct communication between your browser and Google servers. No data is sent to the developer's servers or any third-party analytics services.</p>
-
-        <h2>4. Data Storage & Protection</h2>
-        <p>This extension is designed to be "stateless" regarding sensitive user data.</p>
+        <h2><span class="material-icons-outlined">lock</span>3. データの保存・保護と削除方法</h2>
         <ul>
-          <li><strong>No Remote Storage:</strong> We do not store your tokens, files, or slide content on any external servers.</li>
-          <li><strong>Local Storage:</strong> Non-sensitive settings (e.g., UI preferences) are stored locally in your browser using Chrome Storage API.</li>
-          <li><strong>Protection:</strong> All API communications use standard HTTPS encryption (OAuth 2.0) provided by Google.</li>
+          <li><strong>ローカル保存のみ:</strong> すべての設定値、APIキー、カテゴリデータはお客様の Chrome ブラウザ内のストレージ領域にのみ保存され、開発者がこれらを閲覧することは技術的に不可能です。</li>
+          <li><strong>バックアップと完全削除:</strong> 設定データはいつでも設定画面から <code>.json</code> ファイルとしてエクスポートできます。また、Chrome ブラウザから本拡張機能をアンインストールするだけで、ブラウザ内に保存されたすべての設定データが自動的に削除されます。</li>
         </ul>
 
-        <h2>5. Data Retention & Deletion</h2>
-        <p>Since we do not store your personal data on our servers, there is no data retention period.</p>
-        <ul>
-          <li><strong>Temporary Files:</strong> Image files created in Google Drive during the slide generation process are <strong>deleted immediately</strong> by the extension once the slide insertion is complete.</li>
-          <li><strong>Deletion Request:</strong> Users can stop all data access and remove all locally stored settings simply by uninstalling this extension from their Chrome browser. No further action is required to delete data as we do not hold any.</li>
-        </ul>
-
-        <h2>Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us via our GitHub repository.</p>
-        <p><a href="https://github.com/kotakahashi-4u/Enhancer4Google" target="_blank" class="github-link" style="display:inline-flex;">GitHub Repository</a></p>
+        <h2><span class="material-icons-outlined">mail</span>4. お問い合わせ</h2>
+        <p>本プライバシーポリシーに関するご質問や不具合のご報告は、以下の公式窓口または GitHub リポジトリよりお願いいたします。</p>
+        <p>
+          <a href="https://github.com/kotakahashi-4u/Enhancer4Google" target="_blank" rel="noopener" class="ext-link">
+            <span class="material-icons-outlined" style="font-size:18px;">open_in_new</span>GitHub Repository
+          </a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="https://corp-4u.com/contact/" target="_blank" rel="noopener" class="ext-link">
+            <span class="material-icons-outlined" style="font-size:18px;">support_agent</span>お問い合わせフォーム
+          </a>
+        </p>
       </div>
     </div>
 
-    <div id="content-ja" class="lang-content">
-      <div class="card">
-        <h2>プライバシーポリシー</h2>
-        <p>最終更新日: 2026年1月2日</p>
-        <p>「Enhancer 4 Google」（以下、本拡張機能）は、ユーザーのプライバシーを最優先に考えて設計されています。本ポリシーでは、本拡張機能が Google API Services User Data Policy に準拠してどのようにデータを扱うかを説明します。</p>
-        
-        <div class="note">
-          <p><strong>要約:</strong> 本拡張機能は、ユーザーの個人情報、閲覧履歴、入力データを開発者のサーバーへ送信・収集することは一切ありません。すべての処理はユーザーのブラウザおよびGoogleの公式APIとの直接通信によって行われます。</p>
+    <!-- English Version -->
+    <div id="content-en" class="lang-content">
+      <div class="policy-hero-card">
+        <div class="policy-hero-top">
+          <span class="material-icons-outlined">shield</span>
+          <h1>Privacy Policy</h1>
+        </div>
+        <p class="updated-date">Last Updated: November 24, 2026 (Updated for v2.0.0)</p>
+        <p style="margin:0; font-size:0.94rem; color:var(--md-text-secondary);">
+          "Enhancer 4 Google" (hereinafter referred to as "this extension") is designed with user privacy and security as our highest priority. This policy explains how data is handled in compliance with the Chrome Web Store User Data Policy.
+        </p>
+        <div class="summary-callout">
+          <p><strong>Summary:</strong> We operate zero developer servers. We DO NOT collect, store, transmit, or sell your personal information, browsing history, chat messages, prompts, or API keys. All processing occurs locally within your browser or via direct HTTPS communication with official Google endpoints or your own self-hosted Apps Script URLs.</p>
         </div>
       </div>
 
-      <div class="card">
-        <h2>1. アクセスするデータ</h2>
-        <p>本拡張機能は、ユーザーが明示的に機能を利用した場合にのみ、以下のGoogleユーザーデータにアクセスします。</p>
+      <div class="policy-card">
+        <h2><span class="material-icons-outlined">fact_check</span>1. Data Handled & Permissions Usage</h2>
+        <p>This extension uses browser permissions strictly locally and solely to provide the features explicitly enabled by the user:</p>
         <ul>
-          <li><strong>Googleドライブのファイル (drive.file):</strong> 本拡張機能自身が作成したファイル（PDFから変換された一時的な画像ファイルなど）にのみアクセスします。<strong>お客様が作成した既存のドキュメントや写真へのアクセス、読み取り、変更は一切行いません。</strong></li>
-          <li><strong>Googleスライド (presentations):</strong> ユーザーが開始したスライド作成プロセスにおいて、新しいスライドの作成および画像の挿入を行うためにアクセスします。</li>
-          <li><strong>ユーザー識別情報 (userinfo):</strong> Google Drive/Slides APIを操作する際のセッション認証（OAuth2）を行う目的でのみ使用します。</li>
+          <li><strong>User Preferences & Category Data (storage):</strong> Used to store feature toggles, custom chat status templates, and folder organization metadata for Gemini and Gemini Notebook locally via <code>chrome.storage.sync</code> and <code>chrome.storage.local</code>.</li>
+          <li><strong>UI Enhancements & Web Crawler (scripting / activeTab / host_permissions):</strong> Used to apply UI improvements on Gemini, Gemini Notebook, Google Chat, Google Slides, Google Apps Script, and the Google App Launcher, assist with one-click Google Account language switching, and crawl user-specified web pages to generate Markdown files locally.</li>
+          <li><strong>Local File Conversion & Downloads (downloads / offscreen):</strong> Used to convert downloaded images (such as HEIC/WebP to JPG) inside an isolated browser Offscreen/Sandbox environment and save generated Markdown or ZIP archives to your device.</li>
         </ul>
 
-        <h2>2. データの使用目的</h2>
-        <p>アクセスしたGoogleユーザーデータは、以下の特定の機能を提供するためだけに使用されます。</p>
+        <h2><span class="material-icons-outlined">sync_alt</span>2. Direct External Communications</h2>
+        <p>No user data is ever sent to the developer or third-party analytics services. Network requests occur directly from your browser only when you actively use the following optional features:</p>
         <ul>
-          <li><strong>PDFのスライド変換機能:</strong> ユーザーが選択したPDFファイルをスライド化するために使用します。変換された画像を一時的にユーザーのGoogleドライブにアップロードし、Googleスライドに挿入した後、即座に削除します。</li>
+          <li><strong>Gemini Assistant for Google Apps Script:</strong> Uses your own Gemini API key (configured by you) to communicate directly with Google's official Generative Language API (<code>generativelanguage.googleapis.com</code>).</li>
+          <li><strong>PDF Import & Universal Document Conversion:</strong> PDF rendering is performed locally in your browser via PDF.js, and slide/document payloads are sent exclusively to the Google Apps Script Web App URL deployed and configured by you.</li>
         </ul>
-        <p>ユーザーデータを広告、監視、またはその他の目的で使用することはありません。</p>
+        <p>We never use any user data for advertising, profiling, surveillance, or data brokerage.</p>
 
-        <h2>3. データの共有</h2>
-        <p><strong>本拡張機能が、Googleユーザーデータを第三者と共有することは一切ありません。</strong></p>
-        <p>すべてのデータ処理（PDF変換、画像生成）はユーザーのブラウザ内でローカルに行われます。Google APIとの通信は、ユーザーのブラウザとGoogleサーバー間で直接行われ、開発者のサーバーや第三者の分析サービスへデータが送信されることはありません。</p>
-
-        <h2>4. データの保存と保護</h2>
-        <p>本拡張機能は、機密性の高いユーザーデータを保持しない「ステートレス」な設計になっています。</p>
+        <h2><span class="material-icons-outlined">lock</span>3. Data Storage, Protection & Deletion</h2>
         <ul>
-          <li><strong>外部保存なし:</strong> 認証トークン、ファイル、スライドの内容を外部サーバーに保存することはありません。</li>
-          <li><strong>ローカル保存:</strong> UI設定などの機密でない情報は、ブラウザ内の Chrome Storage API を使用してローカルに保存されます。</li>
-          <li><strong>通信の保護:</strong> Google APIとのすべての通信は、Googleが提供する標準のHTTPS暗号化（OAuth 2.0）によって保護されています。</li>
+          <li><strong>Local Browser Storage Only:</strong> All settings, API keys, and category structures remain inside your browser's Chrome Storage API. It is technically impossible for the developer to view or access them.</li>
+          <li><strong>Backup & Complete Removal:</strong> You can export your settings as a <code>.json</code> backup file at any time. Uninstalling this extension from Chrome immediately removes all locally stored extension data.</li>
         </ul>
 
-        <h2>5. データの保持と削除</h2>
-        <p>個人データをサーバーに保存しないため、データの保持期間はありません。</p>
-        <ul>
-          <li><strong>一時ファイル:</strong> スライド生成プロセス中にGoogleドライブに作成された画像ファイルは、スライドへの挿入が完了した直後に、拡張機能によって<strong>自動的に削除</strong>されます。</li>
-          <li><strong>削除リクエスト:</strong> 拡張機能をブラウザからアンインストールするだけで、すべてのデータアクセス権限とローカル設定が削除されます。他に削除が必要なデータは存在しません。</li>
-        </ul>
-
-        <h2>お問い合わせ</h2>
-        <p>本ポリシーに関するご質問や、不具合の報告は、GitHubリポジトリのIssueよりお願いいたします。</p>
-        <p><a href="https://github.com/kotakahashi-4u/Enhancer4Google" target="_blank" class="github-link" style="display:inline-flex;">GitHub Repository</a></p>
+        <h2><span class="material-icons-outlined">mail</span>4. Contact Us</h2>
+        <p>If you have any questions regarding this Privacy Policy, please reach out via our GitHub repository or contact page:</p>
+        <p>
+          <a href="https://github.com/kotakahashi-4u/Enhancer4Google" target="_blank" rel="noopener" class="ext-link">
+            <span class="material-icons-outlined" style="font-size:18px;">open_in_new</span>GitHub Repository
+          </a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="https://corp-4u.com/contact/" target="_blank" rel="noopener" class="ext-link">
+            <span class="material-icons-outlined" style="font-size:18px;">support_agent</span>Contact Form
+          </a>
+        </p>
       </div>
     </div>
 
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      &copy; <span id="copyright-year"></span> Enhancer 4 Google
-    </div>
+  <footer>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="changelog.html">Changelog (v2.0.0)</a> |
+      <a href="https://chromewebstore.google.com/detail/enhancer-4-google/cmihmmpeladlmemlonckioeleobhggfl" target="_blank" rel="noopener">Chrome Web Store</a>
+    </p>
+    <p>&copy; <span id="copyright-year"></span> Enhancer 4 Google. Not affiliated with Google.</p>
   </footer>
 
   <script>
-    // 言語切り替えロジック
     function switchLang(lang) {
-      // コンテンツの切り替え
-      document.getElementById('content-en').classList.remove('active');
-      document.getElementById('content-ja').classList.remove('active');
-      document.getElementById('content-' + lang).classList.add('active');
-
-      // ボタンの見た目切り替え
-      document.getElementById('btn-en').classList.remove('active');
-      document.getElementById('btn-ja').classList.remove('active');
-      document.getElementById('btn-' + lang).classList.add('active');
-
-      // HTMLのlang属性変更
+      document.getElementById('content-ja').classList.toggle('active', lang === 'ja');
+      document.getElementById('content-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.documentElement.lang = lang;
     }
 
-    // 初期化: ブラウザの言語設定を判定
-    const userLang = navigator.language || navigator.userLanguage;
-    if (userLang.startsWith('ja')) {
-      switchLang('ja');
-    } else {
-      switchLang('en');
-    }
+    const userLang = navigator.language || navigator.userLanguage || 'ja';
+    switchLang(userLang.startsWith('ja') ? 'ja' : 'en');
 
-    // 年の自動更新
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
