@@ -3,458 +3,633 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>更新履歴 - Enhancer 4 Google</title>
-  
+  <title>更新履歴 (v2.0.0) - Enhancer 4 Google</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
   <style>
     :root {
-      --md-sys-color-primary: #0b57d0;
-      --md-sys-color-on-primary: #ffffff;
-      --md-sys-color-surface: #fdfbff;
-      --md-sys-color-surface-container: #f0f4f9;
-      --md-sys-color-on-surface: #1f1f1f;
-      --md-sys-color-outline: #747775;
+      --google-blue: #4285F4;
+      --google-red: #EA4335;
+      --google-yellow: #FBBC05;
+      --google-green: #34A853;
+
+      --md-primary: #0b57d0;
+      --md-surface: #f8fafd;
+      --md-surface-card: #ffffff;
+      --md-surface-tonal: #eef3fc;
+      --md-text-primary: #1f1f1f;
+      --md-text-secondary: #444746;
+      --md-text-muted: #5f6368;
+      --md-border: #e3e7ed;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Roboto', 'Google Sans', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: var(--md-sys-color-surface);
-      color: var(--md-sys-color-on-surface);
-      line-height: 1.6;
+      font-family: "Google Sans", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--md-surface);
+      color: var(--md-text-primary);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .header {
-      background: var(--md-sys-color-surface-container);
-      padding: 60px 24px;
-      text-align: center;
-      margin-bottom: 40px;
+    /* 最上部 Google 4カラーバー */
+    .google-color-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 4px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    .google-color-bar span:nth-child(1) { background-color: var(--google-blue); }
+    .google-color-bar span:nth-child(2) { background-color: var(--google-red); }
+    .google-color-bar span:nth-child(3) { background-color: var(--google-yellow); }
+    .google-color-bar span:nth-child(4) { background-color: var(--google-green); }
+
+    /* ヘッダー */
+    .site-header {
+      position: sticky;
+      top: 4px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--md-border);
     }
 
-    .header h1 {
-      font-family: 'Google Sans', sans-serif;
-      margin: 0 0 16px;
-      color: var(--md-sys-color-on-surface);
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .back-link {
+    .brand-link {
       display: inline-flex;
       align-items: center;
+      gap: 10px;
       text-decoration: none;
-      color: var(--md-sys-color-primary);
-      font-weight: 500;
-      margin-bottom: 24px;
+      color: var(--md-text-primary);
+      font-weight: 700;
+      font-size: 1.08rem;
     }
 
-    .back-link:hover {
-      text-decoration: underline;
+    .logo-dots {
+      display: inline-flex;
+      gap: 4px;
+    }
+    .logo-dots i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+    .logo-dots i:nth-child(1) { background: var(--google-blue); }
+    .logo-dots i:nth-child(2) { background: var(--google-red); }
+    .logo-dots i:nth-child(3) { background: var(--google-yellow); }
+    .logo-dots i:nth-child(4) { background: var(--google-green); }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--md-primary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: var(--md-surface-tonal);
+      transition: background-color 0.2s;
+    }
+    .back-btn:hover {
+      background: #dce8fc;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-    }
-
-    /* Timeline Style */
-    .timeline {
+    /* オーロラ ページヒーロー */
+    .page-hero {
       position: relative;
-      padding-left: 32px;
-      border-left: 2px solid #e0e2e7;
+      overflow: hidden;
+      padding: 64px 24px 48px;
+      background: radial-gradient(circle at 50% 0%, #ffffff 0%, #f1f6ff 100%);
+      border-bottom: 1px solid var(--md-border);
+      text-align: center;
     }
-
-    .version-item {
-      position: relative;
-      margin-bottom: 32px; /* 少し間隔を調整 */
-    }
-
-    /* Dot on the timeline */
-    .version-item::before {
+    .page-hero::before {
       content: "";
       position: absolute;
-      left: -41px;
-      top: 19px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: var(--md-sys-color-primary);
-      border: 2px solid white;
-      box-shadow: 0 0 0 2px var(--md-sys-color-primary);
-      transition: background-color 0.3s;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 30% 35%, rgba(49, 134, 255, 0.18) 0%, transparent 42%),
+        radial-gradient(circle at 70% 35%, rgba(155, 114, 203, 0.18) 0%, transparent 42%),
+        radial-gradient(circle at 55% 75%, rgba(217, 101, 112, 0.12) 0%, transparent 40%);
+      filter: blur(42px);
+      pointer-events: none;
     }
 
-    /* 閉じている時はドットの色を少し薄くするなどの演出も可能 */
-    .version-item:not(.open)::before {
-        background-color: var(--md-sys-color-outline);
-        box-shadow: 0 0 0 2px var(--md-sys-color-outline);
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
-    .version-header {
-      display: flex;
-      align-items: center; /* 垂直方向中央揃え */
-      margin-bottom: 0; /* 下のマージンを削除し、リスト表示時に制御 */
-      flex-wrap: nowrap;
-      gap: 12px;
-      cursor: pointer; /* クリック可能であることを示す */
-      user-select: none; /* ダブルクリックでのテキスト選択を防止 */
-      padding: 8px 0; /* クリック領域を少し広げる */
-    }
-
-    .version-header:hover .version-number {
-        color: #0842a0; /* ホバー時に少し濃く */
-    }
-
-    .version-number {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 1.5rem;
+    .release-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #c2d7fa;
+      color: var(--md-primary);
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--md-sys-color-primary);
-      flex-grow: 1; /* 番号以外のスペースを埋める */
+      margin-bottom: 14px;
     }
 
-    /* 開閉用の矢印アイコン */
-    .toggle-icon {
-      font-family: 'Material Icons Outlined';
-      font-size: 24px;
-      color: var(--md-sys-color-outline);
-      transition: transform 0.3s ease;
+    .page-hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      letter-spacing: -0.02em;
     }
 
-    /* 開いている時は矢印を180度回転 */
-    .version-item.open .toggle-icon {
-      transform: rotate(180deg);
+    .page-hero p {
+      margin: 0;
+      color: var(--md-text-secondary);
+      font-size: 0.98rem;
+    }
+
+    /* メインコンテナ */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* カテゴリフィルターチップ */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .filter-chip {
+      border: 1px solid var(--md-border);
+      background: #ffffff;
+      color: var(--md-text-secondary);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+    }
+    .filter-chip:hover {
+      background: #f1f5fb;
+    }
+    .filter-chip.active {
+      background: #e8f0fe;
+      border-color: var(--md-primary);
+      color: var(--md-primary);
+    }
+    .filter-chip .material-icons-outlined {
+      font-size: 17px;
+    }
+
+    /* v2.0.0 メインリリースカード */
+    .version-card {
+      background: var(--md-surface-card);
+      border: 1px solid #d3e3fd;
+      border-radius: 24px;
+      box-shadow: 0 10px 36px rgba(11, 87, 208, 0.06);
+      overflow: hidden;
+    }
+
+    .version-banner {
+      padding: 28px 32px;
+      background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 55%, #f6f0ff 100%);
+      border-bottom: 1px solid #dce6f7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .version-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .version-num {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(95deg, #0b57d0 0%, #6851ff 60%, #9b72cb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .major-badge {
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--md-primary);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .version-summary {
+      width: 100%;
+      margin: 4px 0 0;
+      font-size: 0.92rem;
+      color: var(--md-text-secondary);
+    }
+
+    .changelog-sections {
+      padding: 12px 32px 32px;
+    }
+
+    .cat-group {
+      margin-top: 28px;
+    }
+
+    .cat-group-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--md-text-primary);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--md-border);
+      margin: 0 0 16px;
+    }
+    .cat-group-title .material-icons-outlined {
+      color: var(--md-primary);
+      font-size: 21px;
     }
 
     .change-list {
       list-style: none;
       padding: 0;
       margin: 0;
-      display: none; /* デフォルトで非表示 */
-      margin-top: 16px; /* 開いた時の上の余白 */
-    }
-
-    /* openクラスがついている時は表示 */
-    .version-item.open .change-list {
-      display: block;
-      animation: slideDown 0.3s ease-out;
-    }
-
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .change-item {
-      margin-bottom: 12px;
-      padding-left: 24px;
-      position: relative;
+      background: #fafbfe;
+      border: 1px solid #edf0f5;
+      border-radius: 14px;
+      padding: 16px 18px;
+      transition: border-color 0.2s;
+    }
+    .change-item:hover {
+      border-color: #c8dafc;
     }
 
-    .change-item::before {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 10px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--md-sys-color-outline);
+    .change-item-top {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
     }
 
     .tag {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 0.7rem;
       font-weight: 700;
-      margin-right: 8px;
-      vertical-align: middle;
+      letter-spacing: 0.03em;
     }
-
     .tag.new {
-      background-color: #c2e7ff;
-      color: #001d35;
+      background: #d3e3fd;
+      color: #041e49;
+    }
+    .tag.design {
+      background: #f3e8fd;
+      color: #4a0e78;
+    }
+    .tag.improve {
+      background: #ceead6;
+      color: #0d652d;
     }
 
-    .tag.fix {
-      background-color: #ffdad6;
-      color: #410002;
+    .change-item strong {
+      font-size: 0.96rem;
+      color: var(--md-text-primary);
+    }
+
+    .change-item p {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--md-text-muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--md-border);
+      background: #ffffff;
+      padding: 36px 24px;
+      text-align: center;
+      color: var(--md-text-muted);
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: var(--md-primary);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .version-banner, .changelog-sections {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-      <a href="index.html" class="back-link">
-        <span class="material-icons-outlined" style="font-size: 18px; margin-right: 4px;">arrow_back</span>
-        ホームに戻る
+  <div class="google-color-bar">
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-link">
+        <span class="logo-dots"><i></i><i></i><i></i><i></i></span>
+        <span>Enhancer 4 Google</span>
       </a>
+      <a href="index.html" class="back-btn">
+        <span class="material-icons-outlined" style="font-size: 18px;">arrow_back</span>
+        ホームへ戻る
+      </a>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="release-pill">
+        <span class="material-icons-outlined" style="font-size: 16px;">auto_awesome</span>
+        Release Notes
+      </div>
       <h1>更新履歴 (Changelog)</h1>
-      <p>Enhancer 4 Google の機能追加と修正の履歴です。バージョンをクリックして詳細を確認できます。</p>
+      <p>全面的な Material Design 3 刷新と生成AIワークフロー機能の集大成となるメジャーリリース。</p>
     </div>
-  </div>
+  </section>
 
-  <div class="container">
-    <div class="timeline">
-      
-      
-      <!-- v1.3.0 -->
-      <div class="version-item open">
-        <div class="version-header">
-          <span class="version-number">v1.3.0</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag new">NEW</span>
-            <strong>Google Apps ScriptにおけるGeminiアシスタント機能</strong><br>
-            Google Apps Script（通称GAS）のスクリプトエディタ画面より、直接Geminiを呼び出すことができ、その結果を即時エディタに反映することが可能な機能を追加した。なお、使用にはGoogle AI Studioより発行するGeminiのAPIキーが必要となる。
-          </li>
-        </ul>
-      </div>
-      
-      <!-- v1.2.7 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.2.7</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag new">NEW</span>
-            <strong>GeminiのCanvas機能におけるMarkdownテキスト変換</strong><br>
-            GeminiのCanvas機能におけるドキュメントを生成した際に、コピーを行うとプレーンテキストとして要素がコピーされる。これをMarkdownを保ったままコピペが行えるよう機能追加した。ちなみにこちらは「<a href="https://note.com/majin_108" target="_blank">まじん</a>」さんからの要望案件であり、SHIFT AIのコラボ記念機能となります。
-          </li>
-        </ul>
-      </div>
-      
-      <!-- v1.2.6 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.2.6</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>Geminiのカテゴリ管理機能のダークモード配色修正</strong><br>
-            Geminiのカテゴリ管理機能においてダークモードにすると文字色が見づらい不具合があったが、これを解消しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>Geminiのカテゴリ管理機能の並べ替え機能の実現</strong><br>
-            Geminiのカテゴリ管理機能においてチャット履歴およびフォルダをそれぞれドラッグアンドドロップで並べ替え可能としました。
-          </li>
-        </ul>
-      </div>
+  <main class="container">
 
-      <!-- v1.2.5 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.2.5</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLMのカテゴリ管理機能の不具合修正</strong><br>
-            NotebookLMのDOM構造の変化により、検索ボックスおよびカテゴリが表示されない不具合を解消しました。
-          </li>
-        </ul>
-      </div>
-      
-      <!-- v1.2.4 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.2.4</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>Geminiの送信修飾キーの不具合修正</strong><br>
-            Geminiの送信修飾キーを設定し、プロンプトエリアで利用する際に、サイドバーのチャット履歴のダイアログ（編集や削除等）が表示される不具合を解消しました。
-          </li>
-        </ul>
-      </div>
-      
-      <!-- v1.2.3 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.2.3</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLMのスタジオパネル開閉機能の修正</strong><br>
-            NotebookLMのスタジオパネル開閉機能において、閉じた状態でスライドやメモを開き、戻ると開いた状態になってしまう不具合を解消しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>Googleチャットの更新メッセージの動作不具合修正</strong><br>
-            Googleチャットにおける送信修飾キーの変更において、更新メッセージの場合には送信修飾キーが効かず更新ボタンを押下しないとメッセージが送信できない不具合を解消しました。
-          </li>
-        </ul>
-      </div>
-      
-      <!-- v1.2.2 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.2.2</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLMカテゴリ管理のリスト表示対応（現在は検索機能のみ）</strong><br>
-            NotebookLMのフロントページにおいて、グリッド表示からリスト表示切り替えても検索ボックスを維持するよう修正しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>Geminiカテゴリ管理における保存キーの変更</strong><br>
-            chrome.storage.syncの仕様上、1つのキーに対して8KBのデータしか保存できないため、チャット履歴の保存エラーが頻発していました。これを改善するため、キーの扱い方を変更しました。ただし、chrome.storage.syncは全体としてのデータ容量が少ないため、今後chrome.storage.localなどの利用も見据えた恒久対応を行う予定です。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLMカテゴリ管理機能の緊急アップデート</strong><br>
-            GoogleWorkspace以外のアカウント（@gmail.com）においてカテゴリ管理機能をONにするとすべてのNotebookが非表示になる問題を修正しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLM生成回数カウンター機能の自動保存不具合修正</strong><br>
-            生成回数カウンターの入力エリアにおいて、入力した情報が保存されない不具合が発生していたため修正しました。
-          </li>
-        </ul>
-      </div>
-      
-      <!-- v1.2.1 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.2.1</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag new">NEW</span>
-            <strong>NotebookLM 生成回数カウンター</strong><br>
-            Studioの各アクションボタンの日次のAI生成可能回数を可視化する機能を実装しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLM カテゴリ管理の未割当Notebookの不具合修正</strong><br>
-            未割当Notebookの順序が意図せず変更されてしまう問題を解消しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLM カテゴリ管理の表示切替不具合修正</strong><br>
-            NotebookLM上の順序をデフォルトの「新しい順」から「タイトル」に切り替えた際の表示問題を解消しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLM カテゴリ管理のカテゴリ内カードのレイアウト修正</strong><br>
-            カテゴリに分類されたカードはコンパクト化し、よりレイアウトを見やすく修正しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>NotebookLM 同期スケジューラーの不具合修正</strong><br>
-            多数のソース（10個以上など）を登録した際に、一部しか同期処理が実行されない問題を解消しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>Geminiカテゴリ機能の自動開閉修正</strong><br>
-            Geminiのカテゴリ機能において、チャット履歴をドラッグアンドドロップした際の自動展開問題を解消しました。
-          </li>
-        </ul>
-      </div>
-
-      <!-- v1.2.0 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.2.0</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag new">NEW</span>
-            <strong>Gemini カテゴリ検索機能</strong><br>
-            Geminiのサイドバーにて、カテゴリごとのフィルタリング機能を新規実装しました。
-          </li>
-        </ul>
-      </div>
-
-      <!-- v1.1.0 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.1.0</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag new">NEW</span>
-            <strong>NotebookLM カテゴリ検索機能</strong><br>
-            増え続けるノートブックを効率的に管理するためのカテゴリ検索機能を新規実装しました。
-          </li>
-          <li class="change-item">
-            <span class="tag fix">FIX</span>
-            <strong>送信修飾キーの種類追加</strong><br>
-            送信修飾キーに新たにAlt+Enterを追加しました。
-          </li>
-        </ul>
-      </div>
-
-      <!-- v1.0.1 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.0.1</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <span class="tag new">NEW</span>
-            <strong>Gem カスタム指示の入力エリア拡大編集</strong><br>
-            Gem（カスタムGemini）の作成・編集画面において、システムプロンプト等の入力エリアを拡大表示する機能を実装しました。
-          </li>
-        </ul>
-      </div>
-
-      <!-- v1.0.0 -->
-      <div class="version-item">
-        <div class="version-header">
-          <span class="version-number">v1.0.0</span>
-          <span class="toggle-icon">expand_more</span>
-        </div>
-        <ul class="change-list">
-          <li class="change-item">
-            <strong>初版リリース</strong><br>
-            Enhancer 4 Google を公開しました。
-          </li>
-        </ul>
-      </div>
-
+    <!-- Filter Chips -->
+    <div class="filter-bar" role="tablist" aria-label="カテゴリ絞り込み">
+      <button class="filter-chip active" data-filter="all">
+        <span class="material-icons-outlined">apps</span>すべて表示
+      </button>
+      <button class="filter-chip" data-filter="ui">
+        <span class="material-icons-outlined">palette</span>UI刷新 & 共通
+      </button>
+      <button class="filter-chip" data-filter="gemini">
+        <span class="material-icons-outlined">auto_awesome</span>Gemini
+      </button>
+      <button class="filter-chip" data-filter="notebook">
+        <span class="material-icons-outlined">menu_book</span>Gemini Notebook
+      </button>
+      <button class="filter-chip" data-filter="workspace">
+        <span class="material-icons-outlined">workspaces</span>Chat / Slides / GAS
+      </button>
     </div>
-  </div>
+
+    <!-- v2.0.0 Card -->
+    <article class="version-card">
+      <div class="version-banner">
+        <div class="version-title-group">
+          <span class="version-num">v2.0.0</span>
+          <span class="major-badge">MAJOR UPDATE</span>
+        </div>
+        <p class="version-summary">
+          設定画面から各サービスの注入UIに至るまで Google Material Design 3 準拠へ全面刷新し、Gemini・Gemini Notebook・Google Chat・Google Slides・GAS の全領域に次世代機能を搭載しました。
+        </p>
+      </div>
+
+      <div class="changelog-sections">
+
+        <!-- UI & General -->
+        <section class="cat-group" data-cat="ui">
+          <h2 class="cat-group-title">
+            <span class="material-icons-outlined">tune</span>
+            UIデザイン全面刷新 & 共通ユーティリティ
+          </h2>
+          <ul class="change-list">
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag design">DESIGN</span>
+                <strong>Google Material Design 3 準拠の新設定画面 & 自動タブ選択</strong>
+              </div>
+              <p>最上部のGoogle 4カラーバー、すりガラスヘッダー、各サービスの有効機能数バッジ付きドロワーを採用。現在開いているGoogleサービスのタブを自動判別して対応する設定画面を即座に開きます。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>Googleアカウント言語ワンクリック切替 & ステータス表示</strong>
+              </div>
+              <p>Googleアカウントの優先言語「English (US) ⇔ 元言語」をワンクリックで切り替え可能に。現在の設定言語バッジとアクティブタブの即時リロードボタンも搭載しました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>アプリランチャー（ワッフルメニュー）の自由並び替え</strong>
+              </div>
+              <p>Google画面右上のアプリランチャー内の全アイコンをドラッグ＆ドロップで任意の順番に並び替え・保持できる機能を追加しました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>ダウンロード自動変換（HEIC / WebP 等 → JPG、Office文書 → PDF）</strong>
+              </div>
+              <p>ダウンロード時の特殊画像フォーマットのJPG自動変換および、Word / Excel / PowerPoint ファイルのPDF自動変換に対応しました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>設定とカテゴリデータのJSONバックアップ（エクスポート / インポート）</strong>
+              </div>
+              <p>すべての設定値および Gemini・Gemini Notebook のカテゴリ構成を単一の `.json` ファイルで保存・復元できるバックアップ機能を追加しました。</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Gemini -->
+        <section class="cat-group" data-cat="gemini">
+          <h2 class="cat-group-title">
+            <span class="material-icons-outlined">auto_awesome</span>
+            Gemini 機能拡張
+          </h2>
+          <ul class="change-list">
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>プロンプト目次タイムライン & ↑キー送信履歴呼び出し</strong>
+              </div>
+              <p>長い会話でも画面右端のフローティング目次から該当プロンプトへスムーズスクロール＆ハイライト移動が可能に。空の入力欄で `↑` / `↓` キーを押すと過去の送信プロンプトを呼び出せます。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>Canvas デバイス（モバイル）プレビュー（3連セグメントトグル統合）</strong>
+              </div>
+              <p>コードCanvasの「コード｜プレビュー」横に3つ目の「モバイル」トグルを統合。iPhone 17 / Pixel 10 / iPad 等のプリセット切替やカスタム解像度・縦横回転で即座にUI検証が行えます。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag improve">IMPROVE</span>
+                <strong>サイドバー カテゴリ管理の純正コンテキストメニュー完全統合</strong>
+              </div>
+              <p>ドラッグ不要でチャット各項目の「⋮」メニューから直接「カテゴリに追加」「カテゴリの移動」が可能に。固定（ピン留め）や未読（Mark as unread / read）操作とも完全に連動します。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>チャット履歴の一括削除モード</strong>
+              </div>
+              <p>サイドバー上の不要なチャットを複数チェックして一括削除できるモードを追加しました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag improve">IMPROVE</span>
+                <strong>Canvas Markdownコピー高精度化・プロンプト入力安定化・@メンション対応</strong>
+              </div>
+              <p>テーブルを含むCanvas文書のGFM変換強化、ツールショートカット併用時の複数行入力レイアウト安定化、および `@` メンション候補表示中のEnter確定動作に完全対応しました。</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Gemini Notebook -->
+        <section class="cat-group" data-cat="notebook">
+          <h2 class="cat-group-title">
+            <span class="material-icons-outlined">menu_book</span>
+            Gemini Notebook (旧 NotebookLM)
+          </h2>
+          <ul class="change-list">
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>フラッシュカード（単語帳スタイル）& クイズのワイドUI改善</strong>
+              </div>
+              <p>全画面学習時の表示幅を最適化し、フラッシュカードを立体的な3Dめくりアニメーション付きの横長単語帳スタイルへと進化させました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>複数ノートブックのカテゴリ一括移動 & ノート／ソース一括削除</strong>
+              </div>
+              <p>複数のノートブックを選択して指定カテゴリへまとめて移動・解除できる一括整理機能と、ノートブックおよびソースの一括削除機能を搭載しました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag improve">IMPROVE</span>
+                <strong>Web Crawler の現在タブURLワンクリック取得 & グローバルナビゲーション</strong>
+              </div>
+              <p>クローリング対象URLをアクティブタブからワンクリックで取得できるようになり、ロゴクリックでノート間を素早く移動できるグローバルナビゲーションを追加しました。（※旧仕様の同期スケジューラーおよび生成回数カウンターは廃止し、軽量・高速化を実施しました）</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Chat / Slides / GAS -->
+        <section class="cat-group" data-cat="workspace">
+          <h2 class="cat-group-title">
+            <span class="material-icons-outlined">workspaces</span>
+            Google Chat / Google Slides / Google Apps Script
+          </h2>
+          <ul class="change-list">
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>Google Chat：カスタムステータス最大10件対応 & ステルス高速反映</strong>
+              </div>
+              <p>テンプレートを「＋」ボタンで最大10件まで自由に追加・削除可能に。検索付き絵文字ピッカー、ダイアログのスムーズスクロール、裏側で自動設定するステルス反映エンジンを搭載しました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>Google Chat：SAFE キラキラ保護マーク & サジェスト共存型Enter制御</strong>
+              </div>
+              <p>誤送信防止が有効な入力欄に保護バッジを表示し、`@`メンションや絵文字候補ポップアップ展開時はEnterでの候補選択をそのまま通すスマート判定を実装しました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag improve">IMPROVE</span>
+                <strong>Google Slides：マイGAS Webアプリ連携による高速バッチPDF取込 & 画像ZIP保存</strong>
+              </div>
+              <p>ブラウザ内でのPDF高精細レンダリング・連番画像ZIP保存と、ユーザー自身のGAS WebアプリURLを用いた高速バッチスライド生成アーキテクチャへ刷新しました。</p>
+            </li>
+            <li class="change-item">
+              <div class="change-item-top">
+                <span class="tag new">NEW</span>
+                <strong>Google Apps Script：Gemini 2.5 / 3 対応アシスタント & 全ファイル一括適用</strong>
+              </div>
+              <p>GASエディタ上で最新の Gemini モデルを選択してコード解析・生成を実行し、差分プレビュー確認後に個別または全ファイル一括で自動反映できる開発支援環境を統合しました。</p>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </article>
+
+  </main>
 
   <footer>
+    <p>
+      <a href="index.html">ホーム</a> |
+      <a href="privacy.html">プライバシーポリシー</a> |
+      <a href="https://chromewebstore.google.com/detail/enhancer-4-google/cmihmmpeladlmemlonckioeleobhggfl" target="_blank" rel="noopener">Chrome ウェブストア</a>
+    </p>
     <p>&copy; <span id="year"></span> Enhancer 4 Google. Not affiliated with Google.</p>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // アコーディオンの制御スクリプト
-    document.querySelectorAll('.version-header').forEach(header => {
-      header.addEventListener('click', () => {
-        // 親要素(.version-item)を取得
-        const item = header.closest('.version-item');
-        // openクラスをトグル（あれば削除、なければ追加）
-        item.classList.toggle('open');
+    const chips = document.querySelectorAll('.filter-chip');
+    const groups = document.querySelectorAll('.cat-group');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const target = chip.dataset.filter;
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+
+        groups.forEach(group => {
+          if (target === 'all' || group.dataset.cat === target) {
+            group.style.display = 'block';
+          } else {
+            group.style.display = 'none';
+          }
+        });
       });
     });
   </script>
